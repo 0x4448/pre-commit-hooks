@@ -3,3 +3,4 @@
   description: prevent adding Authenticode signatures to commits
   entry: hooks/check_authenticode_signatures.ps1
   language: script
+  types: [powershell]
