@@ -4,3 +4,10 @@
   entry: hooks/check_authenticode_signatures.ps1
   language: script
   types: [powershell]
+
+- id: check-regex
+  name: check for files matching regex
+  description: prevent adding files matching regex to commits
+  entry: hooks/check_regex.sh
+  language: script
+  types: [text]
