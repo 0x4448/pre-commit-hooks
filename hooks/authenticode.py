@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
+import re
 
 from . import util
 
@@ -8,11 +9,12 @@ log = logging.getLogger(__name__)
 
 
 def find_signature(path):
-    with open(path) as fp:
-        for line_num, line in enumerate(fp):
-            if line.startswith("# SIG # Begin signature block"):
-                log.error(f"{path}:{line_num}: signature found")
-                return True
+    pattern = re.compile("^# SIG # Begin signature block")
+    matches = util.find_matching_lines(path, pattern)
+    if matches:
+        for match in matches:
+            log.error(f"{path}:{match.line_number}: {match.match}")
+        return True
     return False
 
 

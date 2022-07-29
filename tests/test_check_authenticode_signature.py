@@ -2,7 +2,7 @@
 
 import pytest  # noqa: F401
 
-from hooks.check_authenticode_signature import find_signature
+from hooks.authenticode import find_signature
 
 
 def test_signature_found(mock_pwsh_with_sig):
