@@ -1,22 +1,10 @@
 #!/usr/bin/env python3
 
-import argparse
+import logging
 
-from hooks.util import log
+from . import util
 
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("paths", type=str, nargs="+")
-    args = parser.parse_args()
-
-    status = 0
-
-    for path in args.paths:
-        if find_signature(path):
-            status = 1
-
-    return status
+log = logging.getLogger(__name__)
 
 
 def find_signature(path):
@@ -28,5 +16,13 @@ def find_signature(path):
     return False
 
 
+def main() -> int:
+    rv = 0
+    for path in util.get_input_files():
+        if find_signature(path):
+            rv = 1
+    return rv
+
+
 if __name__ == "__main__":
-    SystemExit(main())
+    raise SystemExit(main())

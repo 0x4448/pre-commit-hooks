@@ -1,28 +1,48 @@
 #!/usr/bin/env python3
 
-import logging
+import argparse
 import logging.config
 
+from pathlib import Path
+from typing import Sequence
 
-LOG_CONFIG = {
+
+LOGGING_CONFIG = {
     "version": 1,
-    "formatters": {"default": {"format": "[%(levelname)s] %(message)s"}},
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "format": "[%(levelname)s] %(message)s",
+        },
+    },
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
             "formatter": "default",
-            "level": "WARNING",
+            "level": "DEBUG",
             "stream": "ext://sys.stdout",
         }
     },
     "loggers": {
-        "": {
-            "handlers": [
-                "console",
-            ]
-        }
+        # Reserved for future loggers
+        # To override the logging level for a module hooks.foo:
+        # "hooks.foo": {
+        #     "level": "INFO",
+        # },
+    },
+    "root": {
+        "handlers": [
+            "console",
+        ],
+        "level": "WARN",
     },
 }
 
-logging.config.dictConfig(LOG_CONFIG)
-log = logging.getLogger(__name__)
+logging.config.dictConfig(LOGGING_CONFIG)
+
+
+def get_input_files() -> Sequence[Path]:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", type=Path, nargs="+")
+    args = parser.parse_args()
+    return args.path
