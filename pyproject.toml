@@ -1,3 +1,26 @@
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pre-commit-hooks"
+version = "0.0.4"
+description = "A small collection of pre-commit hooks."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+keywords = [
+  "git",
+  "pre-commit",
+]
+authors = [
+  {name = "0x4448"},
+]
+maintainers = [
+  {name = "0x4448"},
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
