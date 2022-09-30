@@ -37,20 +37,25 @@ def dotnet_format() -> bool:
     solution = get_solution()
     files = [str(f) for f in util.get_input_files()]
 
-    try:
-        command = [
-            # fmt: off
-            "dotnet", "format", solution,
-            "--verify-no-changes",
-            "--severity", "warn",
-            "--include", *files,
-            # fmt: on
-        ]
-        print(command)
-        subprocess.check_output(command, text=True)
+    command = [
+        # fmt: off
+        "dotnet", "format", solution,
+        "--verify-no-changes",
+        "--severity", "warn",
+        "--include", *files,
+        # fmt: on
+    ]
 
-    except subprocess.CalledProcessError:
-        rv = False
+    if solution:
+        try:
+            subprocess.check_output(command, text=True)
+
+        except subprocess.CalledProcessError:
+            log.error(f"Command failed: {command}")
+            rv = False
+
+    else:
+        log.warning("No solutions found")
 
     return rv
 
