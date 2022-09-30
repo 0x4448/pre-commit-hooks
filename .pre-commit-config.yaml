@@ -5,6 +5,11 @@ repos:
       - id: check-authenticode-signatures
       - id: check-regex
 
+  - repo: https://github.com/PyCQA/flake8
+    rev: 5.0.4
+    hooks:
+      - id: flake8
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
     hooks:
