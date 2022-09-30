@@ -4,10 +4,11 @@ import logging
 import os
 import subprocess
 
-from . import util  #noqa: F401
+from . import util
 
 
 log = logging.getLogger(__name__)
+util.configure_logging()
 
 
 def check_dotnet() -> bool:
