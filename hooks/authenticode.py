@@ -6,6 +6,7 @@ import re
 from . import util
 
 log = logging.getLogger(__name__)
+util.configure_logging()
 
 
 def find_signature(path):

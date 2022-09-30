@@ -40,14 +40,16 @@ LOGGING_CONFIG = {
     },
 }
 
-logging.config.dictConfig(LOGGING_CONFIG)
-
 
 @dataclass
 class LineMatch:
     line: str
     line_number: int
     match: str
+
+
+def configure_logging():
+    logging.config.dictConfig(LOGGING_CONFIG)
 
 
 def find_matching_lines(path: Path, pattern: re.Pattern) -> Sequence[LineMatch]:
