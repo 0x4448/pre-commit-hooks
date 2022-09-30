@@ -11,3 +11,10 @@
   entry: hooks/check_regex.sh
   language: script
   types: [text]
+
+- id: dotnet-format-whitespace
+  name: dotnet format whitespace (.NET 6 SDK)
+  description: check for whitespace formatting problems
+  entry: dotnet-format-whitespace
+  language: python
+  types: [c#]
