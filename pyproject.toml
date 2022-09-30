@@ -24,3 +24,6 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
 ]
+
+[project.scripts]
+dotnet-format-whitespace = "hooks.dotnet_format_whitespace:main"
