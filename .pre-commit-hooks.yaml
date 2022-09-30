@@ -12,6 +12,13 @@
   language: script
   types: [text]
 
+- id: dotnet-format
+  name: dotnet format (.NET 6 SDK)
+  description: check dotnet solution
+  entry: dotnet-format
+  language: python
+  types: [c#]
+
 - id: dotnet-format-whitespace
   name: dotnet format whitespace (.NET 6 SDK)
   description: check for whitespace formatting problems
