@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 
 import logging
 import re
+
+from typing import Sequence
 
 from . import util
 
@@ -19,13 +22,13 @@ def find_signature(path):
     return False
 
 
-def main() -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     rv = 0
-    for path in util.get_input_files():
+    for path in util.get_input_files(argv):
         if find_signature(path):
             rv = 1
     return rv
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main())  # pragma: no cover

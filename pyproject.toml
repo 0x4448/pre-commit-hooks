@@ -28,3 +28,8 @@ classifiers = [
 [project.scripts]
 dotnet-format = "hooks.dotnet_format:main"
 dotnet-format-whitespace = "hooks.dotnet_format_whitespace:main"
+
+[tool.setuptools]
+packages = [
+  "hooks",
+]
