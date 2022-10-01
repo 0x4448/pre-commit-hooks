@@ -1,0 +1,2 @@
+# Exclude test files from GitHub's language stats
+* linguist-vendored
