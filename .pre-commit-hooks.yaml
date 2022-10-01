@@ -1,8 +1,8 @@
-- id: check-authenticode-signatures
+- id: check-authenticode-signature
   name: check for Authenticode signatures in PowerShell files
   description: prevent adding Authenticode signatures to commits
-  entry: hooks/check_authenticode_signatures.ps1
-  language: script
+  entry: check-authenticode-signature
+  language: python
   types: [powershell]
 
 - id: check-regex
