@@ -14,4 +14,4 @@ from testing.util import get_test_file
     ),
 )
 def test_main(filename, expected_rv):
-    assert main(get_test_file(filename)) == expected_rv
+    assert main([get_test_file(filename)]) == expected_rv

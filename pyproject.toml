@@ -26,6 +26,7 @@ classifiers = [
 ]
 
 [project.scripts]
+check-authenticode-signature = "hooks.authenticode:main"
 dotnet-format = "hooks.dotnet_format:main"
 dotnet-format-whitespace = "hooks.dotnet_format_whitespace:main"
 

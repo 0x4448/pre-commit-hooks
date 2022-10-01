@@ -7,7 +7,7 @@ import re
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from collections.abc import Sequence
 
 
 LOGGING_CONFIG = {
@@ -66,5 +66,5 @@ def find_matching_lines(path: Path, pattern: re.Pattern) -> Sequence[LineMatch]:
 def get_input_files(argv: Sequence[str] | None = None) -> Sequence[Path]:
     parser = argparse.ArgumentParser()
     parser.add_argument("path", type=Path, nargs="+")
-    args = parser.parse_args([argv]) if argv else parser.parse_args()
+    args = parser.parse_args(argv) if argv else parser.parse_args()
     return args.path
