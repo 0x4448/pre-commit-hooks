@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 
 import argparse
 import logging.config
@@ -62,8 +63,8 @@ def find_matching_lines(path: Path, pattern: re.Pattern) -> Sequence[LineMatch]:
     return matches
 
 
-def get_input_files() -> Sequence[Path]:
+def get_input_files(argv: Sequence[str] | None = None) -> Sequence[Path]:
     parser = argparse.ArgumentParser()
     parser.add_argument("path", type=Path, nargs="+")
-    args = parser.parse_args()
+    args = parser.parse_args([argv]) if argv else parser.parse_args()
     return args.path

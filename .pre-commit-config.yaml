@@ -1,10 +1,4 @@
 repos:
-  - repo: https://github.com/0x4448/pre-commit-hooks
-    rev: v0.0.3
-    hooks:
-      - id: check-authenticode-signatures
-      - id: check-regex
-
   - repo: https://github.com/PyCQA/flake8
     rev: 5.0.4
     hooks:
